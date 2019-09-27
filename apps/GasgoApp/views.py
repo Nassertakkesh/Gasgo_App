@@ -42,8 +42,8 @@ print(reverse_geocode_result)
 
 # Filler.objects.all().delete()
 # Driver.objects.all().delete()
-Order.objects.all().delete()
-Address.objects.all().delete()
+# Order.objects.all().delete()
+# Address.objects.all().delete()
 
 def index(request):
         return render(request,"GasgoApp/index.html")
