@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Agency - Start Bootstrap Theme</title>
+
+<!-- Bootstrap core CSS -->
+<link href="{% static 'GasgoApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link href="{% static 'GasgoApp/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+<!-- Custom styles for this template -->
+<link href="{% static 'GasgoApp/css/agency.min.css' %}" rel="stylesheet">
+
+
+<style>
+
+.register{
+background: -webkit-linear-gradient(left, #212529, black);
+margin-top: 3%;
+padding: 3%;
+}
+.register-left{
+text-align: center;
+color: #fff;
+margin-top: 4%;
+}
+.register-left input{
+border: none;
+border-radius: 1.5rem;
+padding: 2%;
+width: 60%;
+background: #f8f9fa;
+font-weight: bold;
+color: #383d41;
+margin-top: 30%;
+margin-bottom: 3%;
+cursor: pointer;
+}
+.register-right{
+background: #f8f9fa;
+border-top-left-radius: 10% 50%;
+border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+margin-top: 15%;
+margin-bottom: 5%;
+width: 25%;
+-webkit-animation: mover 2s infinite  alternate;
+animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+0% { transform: translateY(0); }
+100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+0% { transform: translateY(0); }
+100% { transform: translateY(-20px); }
+}
+.register-left p{
+font-weight: lighter;
+padding: 12%;
+margin-top: -9%;
+}
+.register .register-form{
+padding: 10%;
+margin-top: 10%;
+}
+.btnRegister{
+float: right;
+margin-bottom: 10%;
+border: none;
+vertical-align: middle;
+border-radius: 1.5rem;
+padding: 2%;
+background: #212529;
+color: #fff;
+font-weight: 600;
+width: 100%;
+cursor: pointer;
+}
+.register .nav-tabs{
+margin-top: 3%;
+border: none;
+background: #212529;
+border-radius: 1.5rem;
+width: 28%;
+float: right;
+}
+.register .nav-tabs .nav-link{
+padding: 2%;
+height: 34px;
+font-weight: 600;
+color: #fff;
+border-top-right-radius: 1.5rem;
+border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+border: none;
+}
+.register .nav-tabs .nav-link.active{
+width: 100px;
+color: #212529;
+border: 2px solid #212529;
+border-top-left-radius: 1.5rem;
+border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+text-align: center;
+margin-top: 8%;
+margin-bottom: -15%;
+color: #495057;
+}
+
+
+
+
+
+</style>
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+</head>
+
+
+<!-- Navigation -->
+<nav  style= "background-color: black" class= "navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+<div class="container ">
+<a class="navbar-brand js-scroll-trigger" href="/">Gasgo</a>
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+Menu
+<i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav text-uppercase ml-auto">
+<li class="nav-item">
+<a class="nav-link js-scroll-trigger" href="/#services">Who we are?</a>
+</li>
+<li class="nav-item">
+<a class="nav-link js-scroll-trigger" href="/#about">How it works?</a>
+</li>
+<li class="nav-item">
+<a class="nav-link js-scroll-trigger" href="/#portfolio">Portfolio</a>
+</li>
+<li class="nav-item">
+<a class="nav-link js-scroll-trigger" href="/#team">Team</a>
+</li>
+<li class="nav-item">
+<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+
+
+</head>
+<br>
+<br><br>
+<br>
+<body>
+<!--  THIS IS THE REGSTRATION PART  -->
+<div class="container p-5">
+
+
+
+
+
+<div class="container register">
+<div class="row">
+<div class="col-md-3 register-left">
+    <img src="{% static 'GasgoApp/img/Gas_img/login.png' %}" alt=""/>
+    <h3>Welcome</h3>
+    <p>You are 30 seconds away from making money</p>
+<form action="/driverLog">
+    <input type="submit" name="" value="Login"/><br/>
+</form>
+</div>
+<div class="col-md-9 register-right">
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <h3 class="register-heading">Register to Start Delivering</h3>
+            <div class="row register-form">
+                <div class="col-md-12">
+                                               
+                <form class="form-horizontal" action='/driverRegistration' method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                          <div id="legend">
+                            <legend class=" text-center">About you</legend>
+                          </div>
+                          {% if messages %}
+                <ul class="messages">    
+                    {% for message in messages %}    
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                          <div >
+                            <!-- Username -->
+                            <label class="control-label"  for="username">First Name</label>
+                            <div class="controls">
+                              <input type="text"  name="first_name" class=" form-control input-xlarge">
+                            </div>
+                          </div>
+                         
+                          <div class="control-group">
+                                <!-- Username -->
+                                <label class="control-label"  for="username">Last Name</label>
+                                <div class="controls">
+                                  <input type="text"  name="last_name" class="form-control  input-xlarge">
+                                </div>
+                              </div>
+                
+                          <div class="control-group">
+                            <!-- E-mail -->
+                            <label class="control-label" for="email">E-mail</label>
+                            <div class="controls">
+                              <input type="text" id="email" name="email" placeholder="" class="form-control  input-xlarge">
+                            </div>
+                          </div>
+                
+                          <div class="control-group">
+                                <!-- Birth Date -->
+                                <label class="control-label"  for="birth_date">Birthdate</label>
+                                <div class="controls">
+                                  <input type="date" id="birth_date" name="birth_date" placeholder="" class="form-control  input-xlarge">
+                                </div>
+                              </div>
+                       
+                          <div class="control-group">
+                            <!-- Password-->
+                            <label class="control-label" for="password">Password</label>
+                            <div class="controls">
+                              <input type="password" id="password" name="password" placeholder="" class="form-control  input-xlarge">
+                            </div>
+                          </div>
+                       
+                          <div class="control-group">
+                            <!-- Password -->
+                            <label class="control-label"  for="password_confirm">Password (Confirm)</label>
+                            <div class="controls">
+                              <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="form-control  input-xlarge">
+                            </div>
+                          </div>
+                        </fieldset>
+<br>
+<div class="text-center">
+                        <label class="radio inline"> 
+                                <input type="radio" name="gender" value="male" checked>
+                                <span> Male </span> 
+                            </label>
+                            <label class="radio inline"> 
+                                <input type="radio" name="gender" value="female">
+                                <span>Female </span> 
+                            </label>
+           
+                        </div>
+                 
+                        
+                        </div>
+
+                        <input type="submit" class="btnRegister "  value="Register"/>
+    
+                    </div>
+           
+
+                            </form>
+                     
+          
+                        </div>
+
+            </div>
+        </div>
+   
+</div>
+</div>
+
+</div>
+
+
+
+
+</body>
+
+</html>

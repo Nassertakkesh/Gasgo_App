@@ -1,0 +1,325 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Agency - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'GasgoApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'GasgoApp/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'GasgoApp/css/agency.min.css' %}" rel="stylesheet">
+
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        .border-3 {
+    border-width:8px !important;
+    border-color:black !important;
+
+}
+    </style>
+
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+
+
+
+</head>
+
+
+<!-- Navigation -->
+<nav style="background-color: black" class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container ">
+        <a class="navbar-brand js-scroll-trigger" href="/successFiller">Gasgo</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+
+<div class="row">
+</div>
+
+
+
+        </div>
+<div class="col-lg-11 m-5 p-5">
+    <div class="card mb-4 box-shadow ">
+        <div class="card-body">
+            <!-- <div id="map" style="height: 500px; width: 100%; display: block;">
+
+            </div> -->
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="/submitFillerFrom " method="POST">
+                {% csrf_token %}
+                <div class="card-body container  ">
+                    <h2 style="text-align: center; margin-bottom: 5%"><u> <strong>Today's Prices</strong> </u></h2>
+                    <div class="row ">
+
+                        <div class="col-md-4 p-0">
+                            <h4 class="text-center">Unleaded: ${{unleaded}} </h4>
+                        </div>
+                        <div class="col-md-4 p-0">
+                            <h4 class="text-center">Plus: ${{plus}}</h4>
+                        </div>
+                        <div class="col-md-4 p-0">
+                            <h4 class="text-center">Premium: ${{premium}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                        <div id="map" style="height: 300px; width: 100%; display: block;">
+        </div>
+
+
+
+        <div class="card-body row ">
+
+            <div class="col-lg-12 col-lg-offset-3  ">
+
+                <form class="form-horizontal" role="form">
+
+
+                    <!-- Text input-->
+                    <div class="form-group ">
+                    <h5 class="text-center" > <u>  Please tell us more about your order</u></h5>
+
+                        <label class="col-sm-12 control-label" for="textinput"> Choose the type of Gas your car needs</label>
+                        <div class="col-sm-12 col-sm-offset-4">
+<select id="Type" name="Type" class="form-control">
+
+<option value="" disabled="">Type</option>
+
+<option id="Unleaded" value="{{unleaded}}" name=" Unleaded">87 - Unleaded</option>
+
+<option id="Plus" value="{{plus}}" name="Plus">89 - Plus</option>
+
+<option id="Premium" value={{premium}} name=" Premium"> 91/93 - Premium</option>
+</select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label" for="Gallons"> Choose the Number of Gallons you want to fill</label>
+                        <div class="col-sm-12">
+                            <input type="text" id="Gallons" name="Gallons" value=0 placeholder=""
+                                class="form-control  input-xlarge">
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <h5 class="text-center" > <u>  Please tell us where your car will be located </u></h5>
+                    <br>
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label" for="textinput">Address Line 1</label>
+                        <div class="col-sm-12">
+                            <input type="text" placeholder="Address Line 1" class="form-control" name="address1">
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label" for="textinput"> Address Line 2</label>
+                        <div class="col-sm-12">
+                            <input type="text" placeholder="Address Line 2" class="form-control" name="address2"
+                            value = " ">
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label" for="textinput">City</label>
+                        <div class="col-sm-12">
+                            <input type="text" placeholder="City" class="form-control" name="city">
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="card-body row"> 
+
+                    <div class="form-group col-sm-6 ">
+                        <label class=" control-label" for="textinput">State</label>
+                        <input type="text" placeholder="State" class="form-control" name="state">
+                    </div>
+     
+                    <div class="form-group col-sm-6  ">
+                        <label class=" control-label" for="textinput">Postcode</label>
+                            <input type="text" placeholder="Post Code" class="form-control" name="zip">
+                    </div>
+
+                </div>
+                    <!-- Text input-->
+                    <div class="form-group ">
+                        <label class="col-sm-12 control-label" for="textinput">Country</label>
+                        <div class="col-sm-12">
+                            <input type="text" placeholder="Country" class="form-control" name="country">
+                        </div>
+                    </div>
+                
+
+
+                <div class="form-group ">
+                        <!-- <h5 id="latDis"> Lat </h5> -->
+                        <label class="col-sm-12 control-label" for="textinput">Latitude</label>
+                        <div class="col-sm-12">
+                            <input type="text" id="lat" class="form-control" name="lat" value = "">
+                        </div>
+                    </div>
+                    
+
+                    <!-- <h5 id="lngDis"> Lat </h5> -->
+                    <div class="form-group ">
+                            <label class="col-sm-12 control-label" for="textinput">Longtitude</label>
+                            <div class="col-sm-12">
+                                <input type="text" id="lng" class="form-control" name="lng" value = "">
+                            </div>
+                        </div>
+    
+
+
+                <!-- Text input-->
+                    <div class="card-body row">
+                            <div class="col-md-12 ">
+                                <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" id="" value="GAS ME UP!!!">
+                    
+                            </div>
+                        </div>
+
+            
+                </form>
+            </div><!-- /.col-lg-12 -->
+        </div><!-- /.row -->
+
+
+    
+
+
+
+
+    </div>
+</div>
+</div>
+</div>
+<!-- <script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        var uluru = { lat: -25.344, lng: 131.036 };
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), { zoom: 4, center: uluru });
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({ position: uluru, map: map });
+    }
+</script> -->
+<div id="map"></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 15
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+
+    //         document.getElementById("lat").onclick = function() {
+    //         document.getElementById("lat").innerHTML  = pos[1];
+
+    //    }
+
+
+                
+            document.getElementById("lat").value = pos.lat;
+            // document.getElementById("latDis").innerHTML = "Longitude:" + pos.lat;
+            document.getElementById("lng").value = pos.lng;
+            // document.getElementById("lngDis").innerHTML = "Latitude:" + pos.lng;
+
+            // console.log(pos);
+            // console.log(pos[1]);
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('YOU ARE HERE!!!');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbS5UsBI2fVZE5BS9IfCnHYF5YqtsT-ws&callback=initMap">
+    </script>
+
+
+
+<!-- 
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbS5UsBI2fVZE5BS9IfCnHYF5YqtsT-ws&callback=initMap"
+    type="text/javascript"></script> -->
+</body>
+
+</html>

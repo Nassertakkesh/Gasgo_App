@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Agency - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'GasgoApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'GasgoApp/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'GasgoApp/css/agency.min.css' %}" rel="stylesheet">
+<Style>
+    .stripe-button-el span {
+
+        background: #fed136 !important;
+        padding:20px 40px;
+        background-color:#fed136;
+        border-color:#fed136;
+        background-color:#fec810!important;
+        border-color:#fec810!important;
+        color:#fff;
+        box-shadow:0 0 0 .2rem rgba(254,209,55,.5)!important;
+        font-family:Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';font-weight:700;
+        font-size:18px;padding:20px 40px;
+        box-shadow:0 0 0 .2rem rgba(254,209,55,.5)!important
+
+    }
+</Style>
+
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+
+</head>
+
+
+<!-- Navigation -->
+<nav style="background-color: black" class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container ">
+            <a class="navbar-brand js-scroll-trigger" href="/successFiller">Gasgo</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/successFiller">Go Back</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
+                    </li>
+               
+                </ul>
+            </div>
+        </div>
+    </nav>
+<br>
+
+<div class="row">
+</div>
+
+
+<div class="col-lg-11 m-5 p-5">
+    <div class="card mb-4 box-shadow ">
+        <div class="card-body">
+            <div class=" col-lg-6 offset-md-3 text-center" style="height: 500px; width: 100%; display: block;">
+                <h2>Review your order</h2>
+                    <table class="table" >
+                            <thead>
+                              <tr>
+                                <th scope="col">Order Titles</th>
+                                <th scope="col">Your Order</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Number of Order: </th>
+                                <td>{{Order.gallons}} </td>
+
+                              </tr>
+                              <tr>
+                                <th scope="row">Price/Gallon: </th>
+                                <td>{{Order.type}}</td>
+
+                              </tr>
+                              <tr>
+                                <th scope="row">Type: </th>
+                                <td>Unleaded</td>
+
+                              </tr>
+                              <tr>
+                                    <th scope="row">Total: </th>
+                                    <td>${{total}}</td>
+    
+                                  </tr>
+                            </tbody>
+                          </table>
+
+    
+
+
+<form action="/charge" method="post">
+{% csrf_token %}
+<div class="card-body row mb-5">
+    <div class="col-md-12 mb-5 ">
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ 'pk_test_X2ZpY64mbaLy3PZztO9YtTkh00iaUAFhcg' }}" data-description="Complete Transaction"
+            data-amount="{{total}}00" data-locale="auto">
+            </script>
+
+        <script>
+            // Hide default stripe button, be careful there if you
+            // have more than 1 button of that class
+            document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+        </script>
+
+        <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" id=""
+            value="Continue to Checkout ">
+ 
+        <!-- <button type="submit" class="yourCustomClass">Buy my things</button> -->
+    </div>
+</div>
+</form>
+
+
+<br>
+<br>
+
+<h5>Stripe’s test card</h5> 
+
+        <p>U.S. card: 4242 4242 4242 4242</p>
+        <p># code on back : 4000, 0000, 0000, 3220</p>
+
+
+<!-- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button btn-primary"
+    data-key="{{ key }}"
+    data-description="Complete Transaction"
+    data-amount="{{total}}"
+    data-locale="auto">
+</script> -->
+                   
+          
+        </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+
+</html>
