@@ -115,9 +115,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-STRIPE_SECRET_KEY = 'sk_test_2JSQNlFkzKmz55eKwjlGjYpZ00N0pUNpFs'
-STRIPE_PUBLISHABLE_KEY = 'pk_test_X2ZpY64mbaLy3PZztO9YtTkh00iaUAFhcg'
-GOOGLE_MAPS_API_KEY = 'AIzaSyAbS5UsBI2fVZE5BS9IfCnHYF5YqtsT-ws'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
